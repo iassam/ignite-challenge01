@@ -82,7 +82,7 @@ app.put("/todos/:id", checksExistsUserAccount, (request, response) => {
   storedTodo.title = title;
   storedTodo.deadline = deadline;
 
-  return response.status(201).send();
+  return response.json(storedTodo);
 });
 
 app.patch("/todos/:id/done", checksExistsUserAccount, (request, response) => {
@@ -97,7 +97,7 @@ app.patch("/todos/:id/done", checksExistsUserAccount, (request, response) => {
 
   storedTodo.done = true;
 
-  return response.status(201).send();
+  return response.json(storedTodo);
 });
 
 app.delete("/todos/:id", checksExistsUserAccount, (request, response) => {
